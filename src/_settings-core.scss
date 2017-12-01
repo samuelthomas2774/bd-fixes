@@ -1,0 +1,19 @@
+/* Core / Emotes page */
+#bd-settingspane-container {
+	.ui-switch-item {
+		.style-description {
+			margin-top: 0px;
+			padding-bottom: 5px;
+			padding-bottom: 10px;
+		}
+		
+		+ .ui-switch-item > div:first-child {
+			margin-top: 5px;
+		}
+		
+		&:last-child .style-description {
+			border-bottom: 0px none;
+			margin-bottom: 80px;
+		}
+	}
+}

@@ -1,0 +1,110 @@
+/* Custom CSS page */
+
+/* #bd-customcss-attach-controls is the toolbar under the editor */
+#bd-customcss-attach-controls {
+	background-color: transparent !important;
+}
+
+#bd-settingspane-container {
+	.CodeMirror {
+		border: 1px rgba(32, 34, 37, 0.6) solid;
+		border-radius: 4px;
+	}
+	
+	.CodeMirror,
+	.CodeMirror-scroll {
+		max-height: calc(95vh - 185px);
+		min-height: calc(95vh - 185px);
+		height: 100%;
+	}
+	
+	#bd-customcss-attach-controls {
+		padding: 5px 0px;
+	}
+}
+
+/* #bd-customcss-detach-container is the element containing the editor while it is detached */
+#bd-settingspane-container,
+#bd-customcss-detach-container {
+	.CodeMirror-scroll {
+		cursor: text;
+	}
+	
+	.CodeMirror-lines {
+		margin-top: 5px;
+		margin-left: 3px;
+		margin: 5px 3px;
+		height: 100%;
+		cursor: text;
+	}
+	
+	.CodeMirror-gutters {
+		height: 100% !important;
+		border-right: 1px rgba(32, 34, 37, 0.6) solid;
+		padding-right: 3px;
+		cursor: default;
+	}
+	
+	.CodeMirror-linenumber {
+		padding-right: 9px;
+		cursor: text;
+	}
+}
+
+/* #editor-detached is the Custom CSS settings pane when the editor is detached */
+#editor-detached {
+	margin-top: 0px;
+	
+	h3 {
+		margin-top: calc(50% - 50px);
+	}
+	
+	button {
+		margin-top: 32px !important;
+		font-size: 18px !important;
+		height: auto !important;
+		padding: 15px 20px;
+	}
+}
+
+/* #bd-customcss-detach-controls-button is the actual buttons in the toolbar under the editor */
+#bd-customcss-detach-controls-button {
+	background-color: transparent !important;
+	
+	button {
+		background-color: #292b2f !important;
+		padding: 7px 10px;
+		font-size: 14px;
+		height: auto !important;
+	}
+	
+	span {
+		margin: 10px 0px 0px !important;
+		display: block;
+	}
+}
+
+#bd-customcss-detach-container {
+	padding-top: 22px;
+	border-left: 1px solid #282b30;
+	width: calc(30% - 1px);
+	
+	&::before {
+		color: #f6f6f7;
+		text-transform: uppercase;
+		font-weight: 600;
+		margin-bottom: 17px;
+		padding: 0px 17px;
+		content: "Custom CSS Editor";
+		display: block;
+	}
+	
+	.CodeMirror {
+		height: calc(100% - 50px);
+	}
+	
+	#bd-customcss-attach-controls {
+		padding: 10px 10px;
+		height: auto;
+	}
+}

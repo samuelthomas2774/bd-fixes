@@ -1,0 +1,100 @@
+/* Light theme colours */
+.theme-light {
+	#bd-settings-sidebar {
+		.ui-tab-bar-header {
+			color: #b9bbbe;
+		}
+		
+		.ui-tab-bar-item:not(.selected) {
+			color: #72767d;
+			
+			&:hover {
+				background-color: rgba(79, 84, 92, 0.1);
+				color: #4f545c;
+			}
+		}
+		
+		div + span {
+			color: #b9bbbe !important;
+		}
+	}
+	
+	/* Core / Emotes page */
+	#bd-settingspane-container {
+		h2.ui-form-title {
+			color: #4f545c;
+		}
+		
+		.ui-switch-item h3 {
+			color: #4f545c;
+		}
+		
+		.style-description {
+			color: hsla(218, 5%, 47%, 0.6);
+		}
+	}
+	
+	/* Custom CSS page */
+	#bd-settingspane-container {
+		#bd-customcss-attach-controls span {
+			color: hsla(218, 5%, 47%, 0.6);
+		}
+		
+		#bd-customcss-detach-controls-button button {
+			color: #4f545c;
+			background-color: #f8f9f9 !important;
+			
+			&:not(:last-of-type) {
+				border-right: 1px solid #ffffff !important;
+			}
+			&:not(:first-of-type) {
+				border-left: 1px solid #ffffff !important;
+			}
+		}
+	}
+	
+	/* Plugins / Themes page */
+	#bd-settingspane-container .bd-pfbtn + .bda-slist {
+		li,
+		&:not(:empty)::before {
+			background-color: #f8f9f9;
+			border-color: #dcddde;
+			color: #72767d;
+		}
+		
+		li .bda-left {
+			.bda-name {
+				color: #72767d;
+			}
+			
+			.scroller {
+				color: #72767d;
+			}
+		}
+		
+		li .bda-right input:not(:checked) + .ui-switch::after {
+			color: #72767d;
+		}
+		
+		/* Settings pane */
+		li[style="max-height: 500px; overflow: auto;"] {
+			input[type="text"] {
+				background-color: rgba(79, 84, 92, 0.02);
+				border-color: rgba(79, 84, 92, 0.3);
+				color: #4f545c;
+				
+				&:hover {
+					border-color: #b9bbbe;
+				}
+			}
+			
+			button:not([onclick$=".saveSettings(this)"]) {
+				color: #72767d;
+			}
+		}
+		
+		&:empty::before {
+			color: #72767d;
+		}
+	}
+}

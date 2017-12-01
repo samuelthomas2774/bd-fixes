@@ -1,0 +1,48 @@
+/* Sidebar fix */
+#bd-settings-sidebar {
+	div[class*="separator"] + & {
+		.ui-tab-bar-separator {
+			display: none;
+		}
+		
+		&::after {
+			background-color: hsla(218, 5%, 47%, 0.3);
+			margin-left: 10px;
+			margin-right: 10px;
+			height: 1px;
+			margin-bottom: 8px;
+			margin-top: 8px;
+			content: "";
+			display: block;
+		}
+	}
+	
+	.ui-tab-bar-header {
+		font-weight: 700;
+		
+		&::after {
+			content: " Settings";
+		}
+	}
+	
+	.ui-tab-bar-item.selected {
+		pointer: default;
+		pointer-events: none;
+	}
+	
+	div + span {
+		display: block;
+		padding: 3px 10px !important;
+		
+		a::before {
+			content: " ";
+		}
+		
+		&::after {
+			display: block;
+			content: "BetterDiscord invite code:\a" "0Tmfo5ZbORCRqbAd";
+			margin-top: 10px;
+			white-space: pre;
+		}
+	}
+}

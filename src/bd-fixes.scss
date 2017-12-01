@@ -1,0 +1,16 @@
+//META{"name": "BetterDiscord-CSS-fixes", "description": "Makes the BetterDiscord settings pages look just like the normal Discord settings pages. Works with both the dark and light themes. Also fixes a few things.\n\nhttps://github.com/samuelthomas2774/bd-fixes", "author": "Samuel Elliott", "version": "1.0" }*//
+
+/* Sidebar fix */
+@import "sidebar";
+
+/* Core / Emotes page */
+@import "settings-core";
+
+/* Custom CSS page */
+@import "settings-css";
+
+/* Plugins / Themes page */
+@import "settings-plugins";
+
+/* Light theme colours */
+@import "theme-light";
