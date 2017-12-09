@@ -1,6 +1,6 @@
 /* Plugins / Themes page */
 #bd-settingspane-container .bd-pfbtn {
-	left: auto;
+	left: auto !important;
 	float: right;
 	padding: 5px 8px;
 	border-radius: 3px;
@@ -11,10 +11,14 @@
 	&:hover {
 		background-color: #677bc4;
 	}
+	
+	+ .bd-pfbtn {
+		margin-right: 8px;
+	}
 }
 
 #bd-settingspane-container .bd-pfbtn + .bda-slist {
-	li, &:not(:empty)::before {
+	> li, &:not(:empty)::before {
 		padding: 20px;
 		border-color: rgba(32, 34, 37, 0.6);
 		
@@ -44,7 +48,7 @@
 		content: "Here's all the plugins that are doing super cool things to make your Discord experience super cooler. If it gets too chilly, you can remove them at anytime.";
 	}
 	
-	li .bda-left {
+	> li .bda-left {
 		width: calc(100% - 140px);
 		.bda-name {
 			font-size: 100%;
@@ -67,7 +71,7 @@
 		}
 	}
 	
-	li .bda-right {
+	> li .bda-right {
 		width: 130px;
 		
 		.ui-switch-wrapper {
@@ -146,24 +150,28 @@
 			&:hover {
 				background-color: #677bc4;
 			}
+			
+			+ button {
+				margin-top: 8px;
+			}
 		}
 	}
 	
-	li::after {
+	> li::after {
 		clear: both;
 		content: " ";
 		display: block;
 	}
 	
-	li:last-child {
+	> li:last-child {
 		margin-bottom: 80px;
 	}
 	
 	/* Settings panel */
-	li {
+	> li {
 		transition: height 1s ease;
 	}
-	li[style="max-height: 500px; overflow: auto;"] {
+	> li[style="max-height: 500px; overflow: auto;"] {
 		background-color: rgba(32, 34, 37, 0.6);
 		border-color: #202225;
 		
@@ -179,7 +187,27 @@
 			margin-top: 0px;
 		}
 		
-		h3 {
+		div + div {
+			> font,
+			> p {
+				color: #dcddde;
+				br {
+					display: block;
+				}
+			}
+		}
+		
+		img {
+			display: block;
+			max-width: 100%;
+			max-height: 250px;
+			margin: 15px 0px;
+		}
+		
+		h3,
+		> label,
+		.form-group:not(.checkbox) label {
+			display: block;
 			color: hsla(210, 3%, 87%, 0.3);
 		    color: #b9bbbe;
 		    -webkit-box-sizing: border-box;
@@ -199,9 +227,37 @@
 			margin-bottom: 12px;
 		}
 		
-		input[type="text"] {
+		> div > label,
+		.form-group:not(.checkbox) label {
+			display: block;
+			color: #dcddde;
+			+ input {
+				margin-top: 0px !important;
+			}
+		}
+		
+		.form-group {
+			margin-top: 15px;
+			
+			> :first-child {
+				margin-top: 0px !important;
+			}
+		}
+		
+		li {
+			min-height: 0px;
+			max-height: none;
+			background: transparent;
+			margin: 0px 0px 10px;
+			padding: 0px;
+			border: 0px none;
+		}
+		
+		input[type="text"],
+		input[type="number"],
+		input[type="tel"],
+		input[type="date"] {
 			outline: none;
-			margin: 5px 0px 10px;
 			padding: 4px 5px;
 			border: 1px #deddde solid;
 			border-radius: 3px;
@@ -212,13 +268,91 @@
 			padding: 10px;
 		    transition: border .15s ease;
 			font-size: 14px;
+			width: 100%;
 			
 			&:hover {
 				border-color: #040405;
 			}
+			
+			&:focus:invalid {
+				border-color: rgba(240, 71, 71, 0.3);
+				&:hover {
+					border-color: rgba(240, 71, 71, 0.6);
+				}
+			}
 		}
 		
-		input[type="text"] + button {
+		> div > input[type="text"],
+		> div > input[type="number"],
+		> div > input[type="tel"],
+		> div > input[type="date"] {
+			margin: 5px 0px 15px;
+		}
+		
+		.checkbox {
+			margin-left: 0px;
+			&::before {
+				content: none;
+			}
+			
+			label {
+				width: 100%;
+				vertical-align: middle;
+				cursor: pointer;
+			}
+			
+			input {
+				margin: 0px 10px 5px 5px;
+				display: none;
+				//float: left;
+				margin-top: 10px;
+				margin-left: 10px;
+				visibility: hidden;
+				
+				+ .ui-switch {
+					display: inline-block;
+					vertical-align: middle;
+					
+					width: 20px;
+					margin-top: -3px;
+				    margin-right: 8px;
+				    font-size: 14px;
+				    padding: 3px 5px;
+					
+					background-color: rgba(67, 67, 129, 0.15);
+				    border-radius: 4px;
+				    //display: block;
+					height: 20px;
+					
+					cursor: pointer;
+					
+					transition: background-color 0.2s ease;
+					
+					&::after {
+						display: inline-block;
+						content: "";
+						color: #ffffff;
+						width: 100%;
+						text-align: center;
+					}
+				}
+				
+				&:checked + .ui-switch {
+					background-color: rgba(67, 181, 129, 1);
+				}
+				&:not(:checked) + .ui-switch:hover {
+					background-color: rgba(67, 181, 129, 0.30);
+				}
+				&:checked + .ui-switch:hover {
+					background-color: rgba(67, 181, 129, 0.85);
+				}
+			}
+		}
+		
+		input[type="text"] + button,
+		input[type="number"] + button,
+		input[type="tel"] + button,
+		input[type="date"] + button {
 			margin: -5px 0px 10px;
 		}
 		button {
@@ -235,7 +369,9 @@
 				text-decoration: underline;
 			}
 		}
-		button[onclick$=".saveSettings(this)"] {
+		button[onclick*=".saveSettings"],
+		button.save,
+		button#save /* Not very unique, don't use this */ {
 			background-color: rgba(67, 181, 129, 1);
 			transition: background-color .17s ease;
 			
@@ -278,6 +414,7 @@
 		content: "You don't have any plugins installed!\a\aYou can download plugins from here:\ahttps://discord.gg/0Tmfo5ZbORCRqbAd #plugin-repo\ahttps://betterdocs.net/plugins.html";
 	}
 }
+
 /* Something like this would be helpful */
 #bd-settingspane-container .bd-settingspane-themes .bd-pfbtn + .bda-slist:empty::before {
 	content: "You don't have any themes installed!\a\aYou can download themes from here:\ahttps://discord.gg/0Tmfo5ZbORCRqbAd #theme-repo\ahttps://betterdocs.net/themes.html";
