@@ -1,8 +1,62 @@
+@mixin light-input {
+	background-color: rgba(79, 84, 92, 0.02);
+	border-color: rgba(79, 84, 92, 0.3);
+	color: #4f545c;
+	
+	&:hover {
+		border-color: #b9bbbe;
+	}
+	
+	&:focus:invalid {
+		border-color: rgba(240, 71, 71, 0.3);
+		&:hover {
+			border-color: rgba(240, 71, 71, 0.6);
+		}
+	}
+}
+
 /* Light theme colours */
 .theme-light {
-	#bd-settings-sidebar {
+	/* Public servers page */
+	#pubslayerroot #pubslayer {
+		/* Sidebar */
+		
+		.content-column {
+			h2.ui-form-title::before {
+				color: #4f545c;
+			}
+			
+			.bd-server-card {
+				.ui-form-title {
+					color: #72767d;
+				}
+				.scroller > div {
+					color: #72767d !important;
+				}
+				
+				+ .bd-server-card {
+					border-color: hsla(216, 4%, 74%, 0.3);
+				}
+			}
+		}
+	}
+	
+	/* Sidebar */
+	#bd-settings-sidebar,
+	#pubslayerroot #pubslayer .sidebar-region {
 		.ui-tab-bar-header {
 			color: #b9bbbe;
+		}
+		
+		.ui-tab-bar-separator {
+			// The settings sidebar uses a background colour for separators,
+			// but the public servers sidebar uses a top border
+			background-color: hsla(216, 4%, 74%, 0.3);
+			border-color: hsla(216, 4%, 74%, 0.3);
+		}
+		
+		.ui-form-item .ui-text-input input {
+			@include light-input;
 		}
 		
 		.ui-tab-bar-item:not(.selected) {
@@ -55,14 +109,18 @@
 	
 	/* Plugins / Themes page */
 	#bd-settingspane-container .bd-pfbtn + .bda-slist {
-		li,
+		> li,
 		&:not(:empty)::before {
 			background-color: #f8f9f9;
 			border-color: #dcddde;
 			color: #72767d;
 		}
 		
-		li .bda-left {
+		> li {
+			background-color: transparent;
+		}
+		
+		> li .bda-left {
 			.bda-name {
 				color: #72767d;
 			}
@@ -72,23 +130,34 @@
 			}
 		}
 		
-		li .bda-right input:not(:checked) + .ui-switch::after {
+		> li .bda-right input:not(:checked) + .ui-switch::after {
 			color: #72767d;
 		}
 		
 		/* Settings pane */
-		li[style="max-height: 500px; overflow: auto;"] {
-			input[type="text"] {
-				background-color: rgba(79, 84, 92, 0.02);
-				border-color: rgba(79, 84, 92, 0.3);
-				color: #4f545c;
-				
-				&:hover {
-					border-color: #b9bbbe;
+		> li[style="max-height: 500px; overflow: auto;"] {
+			background-color: #f8f9f9;
+			
+			div + div {
+				> font,
+				> p {
+					color: #72767d;
 				}
 			}
 			
-			button:not([onclick$=".saveSettings(this)"]) {
+			> label,
+			.form-group:not(.checkbox) label {
+				color: #72767d;
+			}
+			
+			input[type="text"],
+			input[type="number"],
+			input[type="tel"],
+			input[type="date"] {
+				@include light-input;
+			}
+			
+			button:not([onclick*=".saveSettings"]):not(.save):not(#save) {
 				color: #72767d;
 			}
 		}

@@ -1,0 +1,110 @@
+/* BetterDiscord Blue */
+$bd-blue: #3a71c1;
+
+@mixin bd-blue-button {
+	background-color: $bd-blue !important;
+	&:hover {
+		background-color: darken($bd-blue, 10%) !important;
+	}
+	&:active {
+		background-color: darken($bd-blue, 20%) !important;
+	}
+}
+
+body.bd-blue {
+	.guilds {
+		.guild .guild-inner[style*="background-color"] {
+			transition: background-color 0.18s ease;
+			background-color: rgb(47, 49, 54) !important;
+		}
+		.guild:hover .guild-inner[style*="background-color"] {
+			background-color: $bd-blue !important;
+		}
+	}
+	
+	// Tab bars (friends page)
+	#friends .tab-bar {
+		.tab-bar-item-primary:not(.selected) {
+			@include bd-blue-button;
+		}
+	}
+	
+	// User information modal
+	div[class*="topSectionPlaying-"],
+	// User information popout
+	div[class*="userPopout-"] div[class*="headerPlaying-"] {
+		background-color: $bd-blue;
+		
+		.tab-bar-item.selected {
+			color: #ffffff !important;
+		}
+	}
+	
+	// Sidebars on settings and server/channel settings layer
+	.sidebar,
+	div[class*="side-"] {
+		.itemSelected-3XxAMf,
+		.ui-tab-bar-item.selected {
+			background-color: $bd-blue !important;
+		}
+		div[class*="itemSelected-"]:nth-child(7) {
+			// Give the Discord Nitro page's Discord's normal colours
+			background-color: rgb(114, 137, 218) !important;
+		}
+	}
+	
+	.layer[layer-id="user-settings"] {
+		
+		.content-column {
+			// Progress bar
+			div[class*="barFill-"] {
+				background-color: $bd-blue;
+			}
+			
+			// Switch (fancy checkbox)
+			div[class*="switch-"][class*="valueChecked-"],
+			.ui-switch-item .ui-switch.checked {
+				background-color: $bd-blue !important;
+			}
+		}
+	}
+	
+	// Buttons
+	button[class*="buttonBrandFilled-"],
+	.bd-pfbtn,
+	#bd-settingspane-container .bd-pfbtn + .bda-slist > li .bda-right button,
+	.form .btn-primary,
+	.ui-button.filled.brand {
+		@include bd-blue-button;
+	}
+	.create-guild-container .form .action:hover .btn-primary {
+		background-color: darken($bd-blue, 10%) !important;
+	}
+	.region-select:hover button {
+		color: #ffffff;
+	}
+	.create-guild-container.deprecated .action.join .btn-primary,
+	.create-guild-container.deprecated .join-server .btn-primary,
+	.create-guild-container.deprecated .join-server .btn-primary:active {
+		background-color: #43b581 !important;
+		&:hover {
+			background-color: #3ca374 !important;
+		}
+	}
+	
+	// Tooltips
+	.tooltips .tooltip.tooltip-black {
+		background-color: #000000;
+		&.tooltip-right::after { border-right-color: #000000; }
+		&.tooltip-bottom::after { border-bottom-color: #000000; }
+		&.tooltip-top::after { border-top-color: #000000; }
+		&.tooltip-left::after { border-left-color: #000000; }
+	}
+	.tooltips .tooltip.tooltip-red {
+		background-color: #f04747;
+		&.tooltip-right::after { border-right-color: #f04747; }
+		&.tooltip-bottom::after { border-bottom-color: #f04747; }
+		&.tooltip-top::after { border-top-color: #f04747; }
+		&.tooltip-left::after { border-left-color: #f04747; }
+	}
+}

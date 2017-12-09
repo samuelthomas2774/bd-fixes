@@ -1,0 +1,198 @@
+@keyframes bd-layer-in {
+	0% { transform: scale(1.2); opacity: 0; }
+	90% { transform: scale(0.993); opacity: 1; }
+	100% { transform: scale(1); opacity: 1; }
+}
+@keyframes bd-layer-out {
+	0% { transform: scale(1); opacity: 1; }
+	10% { transform: scale(0.993); }
+	90% { opacity: 0; }
+	100% { transform: scale(1.2); opacity: 0; }
+}
+
+#pubslayerroot #pubslayer {
+	.ui-standard-sidebar-view {
+		animation: bd-layer-in 0.2s ease;
+		opacity: 1;
+	}
+	&.bd-layer-out {
+		animation-name: bd-layer-out;
+		opacity: 0;
+	}
+	
+	.sidebar {
+		margin-left: auto;
+		
+		.ui-tab-bar::before {
+			content: "Use the escape key to exit until the tool bar is fixed.";
+			display: block;
+			margin: 0px 10px 10px;
+			font-size: 14px;
+			color: #b9bbbe;
+		}
+		
+		.ui-tab-bar-header {
+			font-weight: 700;
+			&:first-child {
+				font-size: 0px !important;
+				&::after {
+					content: "Search";
+					font-size: 12px;
+				}
+			}
+		}
+		
+		.ui-text-input input {
+			font-size: 13px;
+			&::-webkit-input-placeholder {
+				font-size: 0px;
+			}
+		}
+		
+		.ui-tab-bar-separator {
+			border-top: 1px solid rgb(63, 65, 70);
+			margin: 10px;
+			
+			&:nth-child(2) {
+				//border-top: 0px none;
+				display: none;
+			}
+		}
+		
+		/* "Connected as: ..." */
+		.ui-tab-bar > span:last-child > span:nth-child(2) {
+			display: block;
+			margin: 15px 10px 10px;
+			font-size: 13px !important;
+		}
+		
+		/* Reconnect button container */
+		.ui-tab-bar > span:last-child > div:nth-child(3) {
+			padding: 0px 10px !important;
+		}
+		
+		.ui-button {
+			padding: 5px 7px;
+			font-size: 13px;
+		}
+	}
+	
+	.scroller-wrap {
+		max-height: 100%;
+	}
+	
+	.content-column > .ui-form-title {
+		font-size: 14px;
+		font-weight: normal;
+		text-transform: none;
+		color: rgb(185, 187, 190);
+		
+		&:first-child::before {
+			content: "Public Servers";
+			display: block;
+			margin-bottom: 5px;
+			font-size: 16px;
+			font-weight: 600;
+			text-transform: uppercase;
+			color: #f6f6f7;
+		}
+	}
+	
+	.bd-server-card {
+		> .ui-flex {
+			margin: 20px 0px 20px !important;
+			
+			> .ui-flex-child {
+				max-width: calc(100% - 120px);
+				padding: 0px !important;
+				
+				/* First column - server icon */
+				&:first-child {
+					margin: 0px 20px 20px 0px;
+				}
+				
+				/* Second column - information */
+				&:last-child {
+					/* First row - server name and member count */
+					> .ui-flex:nth-child(1) {
+						.ui-form-item:first-child h5 {
+							font-size: 18px;
+							margin-bottom: 5px;
+						}
+						.ui-form-item:last-child h5 {
+							font-size: 14px;
+							text-transform: lowercase;
+							margin-bottom: 10px;
+						}
+					}
+					
+					/* Second row - description */
+					> .ui-flex:nth-child(2) {
+						.scroller-wrap,
+						.scroller {
+							min-height: 0px !important;
+							max-height: none !important;
+							border: 0px none !important;
+							padding-top: 0px !important;
+							overflow: hidden;
+						}
+						
+						.scroller > div {
+							font-size: 13px;
+							white-space: pre-wrap;
+							margin-bottom: 10px;
+						}
+					}
+					
+					/* Final row - tags and join button */
+					> .ui-flex:nth-child(3) {
+						.bd-server-tags:not(:empty) {
+							overflow: hidden;
+							white-space: nowrap;
+							width: auto;
+							line-height: 12px;
+							font-weight: normal;
+							margin-right: 0px;
+							margin-bottom: 10px;
+							max-height: 12px;
+							font-style: italic;
+						}
+					}
+				}
+			}
+		}
+		
+		+ .bd-server-card {
+			border-top: 1px solid rgb(63, 65, 70);
+		}
+		
+		&::before,
+		&::after {
+			content: "";
+			clear: both;
+		}
+	}
+	
+	.bd-server-card.bd-server-card-pinned::after {
+		background: transparent;
+		height: auto;
+		width: auto;
+		position: static;
+		margin-top: 0px;
+	}
+	
+	.content-column > :last-child {
+		margin-bottom: 120px;
+	}
+	
+	.ui-button {
+		margin-top: 0px !important;
+		min-width: 130px;
+		padding: 7px 20px;
+	}
+	
+	.tools {
+		top: 0px;
+		margin-left: auto;
+	}
+}

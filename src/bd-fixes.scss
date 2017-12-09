@@ -1,5 +1,8 @@
 //META{"name": "BetterDiscord-CSS-fixes", "description": "Makes the BetterDiscord settings pages look just like the normal Discord settings pages. Works with both the dark and light themes. Also fixes a few things.\n\nhttps://github.com/samuelthomas2774/bd-fixes", "author": "Samuel Elliott", "version": "1.0" }*//
 
+/* BD Layers */
+@import "layers";
+
 /* Sidebar fix */
 @import "sidebar";
 
@@ -12,5 +15,28 @@
 /* Plugins / Themes page */
 @import "settings-plugins";
 
+/* Public Servers page */
+@import "public-servers";
+
+/* Hide channels */
+@import "hide-channels";
+
+/* BetterDiscord Blue */
+@import "bd-blue";
+
 /* Light theme colours */
 @import "theme-light";
+
+// Add a message to Discord's help modal
+.modal-content.need-help-modal {
+	.footer {
+		display: block;
+		padding-right: 38px;
+	}
+	.footer::after {
+		content: "Looking for help with BetterDiscord? This isn't the right place to ask.\aJoin the BetterDiscord server at https://discord.gg/0Tmfo5ZbORCRqbAd, or the support server at https://discord.gg/2HScm8j.";
+		display: inline-block;
+		margin-top: 10px;
+		white-space: pre-wrap;
+	}
+}

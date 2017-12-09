@@ -1,0 +1,57 @@
+body .channels-3g2vYe {
+	transition: transform 0.2s ease, opacity 0.2s ease;
+	+ div {
+		transition: margin-left 0.2s ease;
+		z-index: 1;
+	}
+}
+#bd-show-channels {
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}
+#friends .tab-bar,
+.activityFeed-HeiGwL .headerBar-cxbhPD,
+.chat .title-qAcLxz {
+	transition: padding-left 0.2s ease;
+}
+
+body.bd-minimal-chan {
+	#bd-show-channels {
+		position: fixed;
+		font-size: 0px;
+		border-radius: 4px;
+		width: auto;
+		height: auto;
+		padding: 2px 8px !important;
+		min-width: 40px;
+		top: 13px;
+		left: 80px;
+		opacity: 1;
+		
+		&::after {
+			content: "Show channels";
+			font-size: 14px;
+			font-weight: 500;
+		}
+	}
+	
+	.channels-3g2vYe {
+		transform: translateX(20px) perspective(20em) rotateY(2deg) scale(0.9);
+		opacity: 0;
+		+ div {
+			margin-left: -240px;
+		}
+	}
+	
+	#friends .tab-bar {
+		padding-left: calc(103.31px + 16px);
+	}
+	
+	.activityFeed-HeiGwL .headerBar-cxbhPD {
+		padding-left: calc(103.31px + 36px);
+	}
+	
+	.chat .title-qAcLxz {
+		padding-left: calc(103.31px + 28px);
+	}
+}

@@ -1,0 +1,5 @@
+#bd-settingspane-container {
+	&:empty {
+		display: none;
+	}
+}
